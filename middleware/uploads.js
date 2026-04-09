@@ -23,8 +23,6 @@ const pdfStorage = new CloudinaryStorage({
   }
 });
 
-const multer = require('multer');
-
 const uploadImages = multer({ storage: imageStorage });
 const uploadPDFs = multer({ storage: pdfStorage });
 
