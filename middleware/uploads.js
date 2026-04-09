@@ -6,11 +6,7 @@ const storage = new CloudinaryStorage({
   cloudinary,
   params: async (req, file) => {
 
-    // IMAGE FILES
-    if (
-      file.fieldname === "heroImage" ||
-      file.fieldname === "images"
-    ) {
+    if (["heroImage", "images"].includes(file.fieldname)) {
       return {
         folder: "projects/images",
         resource_type: "image",
@@ -18,17 +14,16 @@ const storage = new CloudinaryStorage({
       };
     }
 
-    // PDF FILES
-    if (
-      file.fieldname === "brochure" ||
-      file.fieldname === "floorPlan"
-    ) {
+    if (["brochure", "floorPlan"].includes(file.fieldname)) {
       return {
         folder: "projects/pdfs",
         resource_type: "raw",
         allowed_formats: ["pdf"],
       };
     }
+
+    // ⭐ PREVENT CRASH
+    throw new Error(`Unexpected field: ${file.fieldname}`);
   },
 });
 
