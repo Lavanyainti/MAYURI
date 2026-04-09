@@ -21,6 +21,13 @@ const addProject = async (req, res) => {
     const floorPlan = req.files?.floorPlan?.[0]?.path || "";
     const heroImage = req.files?.heroImage?.[0]?.path || "";
 
+    console.log({
+        "heroimage ": heroImage,
+        "images ":images,
+        "brochure ":brochure,
+        "floorplan ":floorPlan
+      });
+
     const newProject = new Project({
       title,
       location,
