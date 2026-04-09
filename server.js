@@ -10,7 +10,7 @@ const projectRouter = require('./routes/projectRoute');
 const AuthRouter=require('./routes/authRouter')
 
 app.use(cors({
-    origin: ["https://stellar-entremet-f2a57f.netlify.app"], 
+    origin: ["https://remarkable-hamster-9f38d7.netlify.app"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }));
