@@ -1,4 +1,5 @@
 const Project = require("../model/Project");
+const cloudinary = require("../Config/cloudinary");
 
 const addProject = async (req, res) => {
   try {
@@ -45,7 +46,9 @@ const addProject = async (req, res) => {
     });
 
   } catch (error) {
-    console.log(error);
+    console.log("ERROR 👉", error);
+  console.log("MESSAGE 👉", error.message);
+  console.log("STACK 👉", error.stack);
     res.status(500).json({
       success: false,
       message: "Error adding project",
