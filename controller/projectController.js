@@ -1,5 +1,6 @@
 const Project = require("../model/Project");
 const cloudinary = require("../Config/cloudinary");
+const Enquiry=require('../model/enquiry')
 
 const addProject = async (req, res) => {
   try {
@@ -244,6 +245,8 @@ const deleteProject = async (req, res) => {
 
     // Delete project from DB
     await Project.findByIdAndDelete(id);
+
+    await Enquiry.deleteMany({ projectID: id });
 
     res.status(200).json({ success: true, message: "Project deleted successfully" });
 

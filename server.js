@@ -10,7 +10,7 @@ const projectRouter = require('./routes/projectRoute');
 const AuthRouter=require('./routes/authRouter')
 
 app.use(cors({
-    origin: ["https://cozy-kheer-eebece.netlify.app"], 
+    origin: ["https://beamish-daffodil-7c5a63.netlify.app"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }));
