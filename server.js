@@ -10,7 +10,7 @@ const projectRouter = require('./routes/projectRoute');
 const AuthRouter=require('./routes/authRouter')
 
 app.use(cors({
-    origin: ["https://coruscating-sunshine-8158c4.netlify.app"], 
+    origin: ["https://sparkly-sunshine-f6f57b.netlify.app"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }));
