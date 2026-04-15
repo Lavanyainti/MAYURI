@@ -10,26 +10,16 @@ const projectRouter = require('./routes/projectRoute');
 const AuthRouter=require('./routes/authRouter')
 
 app.use(cors({
-    origin: ["https://sparkly-sunshine-f6f57b.netlify.app"], 
+    origin: ["https://super-zuccutto-4f5acf.netlify.app"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }));
 app.use(express.json());
 
-app.use((err, req, res, next) => {
-  console.log("🔥 GLOBAL ERROR");
-  console.log(err);
-
-  res.status(500).json({
-    success: false,
-    message: err.message,
-    stack: err.stack,
-  });
-});
-
 app.use('/api', EnquiryRoute);
 app.use('/api', projectRouter);
 app.use('/api',AuthRouter)
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 const port = process.env.PORT || 5009;
 
