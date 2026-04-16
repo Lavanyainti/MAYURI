@@ -10,7 +10,7 @@ const projectRouter = require('./routes/projectRoute');
 const AuthRouter=require('./routes/authRouter')
 
 app.use(cors({
-    origin: ["https://rad-selkie-edd044.netlify.app"], 
+    origin: ["https://playful-capybara-123faa.netlify.app"], 
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
   }));
@@ -20,12 +20,6 @@ app.use('/api', EnquiryRoute);
 app.use('/api', projectRouter);
 app.use('/api',AuthRouter)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
-
-app.use(express.static(path.join(__dirname, "client/dist")));
-
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, "client/dist/index.html"));
-});
 
 const port = process.env.PORT || 5009;
 
