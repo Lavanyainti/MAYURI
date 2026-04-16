@@ -30,3 +30,13 @@ mongoose.connect(process.env.DB_URL)
 app.listen(port, () => {
   console.log(`Server listening at port ${port}`);
 });
+
+const path = require("path");
+
+// serve frontend files
+app.use(express.static(path.join(__dirname, "client/dist")));
+
+// handle all routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/dist/index.html"));
+});
