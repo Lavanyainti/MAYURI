@@ -21,6 +21,12 @@ app.use('/api', projectRouter);
 app.use('/api',AuthRouter)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
+app.use(express.static(path.join(__dirname, "client/dist")));
+
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, "client/dist/index.html"));
+});
+
 const port = process.env.PORT || 5009;
 
 mongoose.connect(process.env.DB_URL)
@@ -31,10 +37,3 @@ app.listen(port, () => {
   console.log(`Server listening at port ${port}`);
 });
 
-// serve frontend files
-app.use(express.static(path.join(__dirname, "client/dist")));
-
-// handle all routes
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/dist/index.html"));
-});
