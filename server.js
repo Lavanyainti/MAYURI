@@ -31,8 +31,6 @@ app.listen(port, () => {
   console.log(`Server listening at port ${port}`);
 });
 
-const path = require("path");
-
 // serve frontend files
 app.use(express.static(path.join(__dirname, "client/dist")));
 
